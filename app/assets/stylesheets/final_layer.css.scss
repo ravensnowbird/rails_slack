@@ -1,0 +1,29 @@
+.list-group.rooms {
+  overflow-y: scroll;
+  position: absolute;
+  top: 95px;
+  left: 30px;
+  right: 30px;
+  bottom: 0px;
+}
+
+.product-detail-info.rooms {
+  top: 101px;
+    left: 15px;
+    right: 80%;
+    bottom: 15px;
+    /* overflow: auto; */
+    position: absolute;
+}
+.product-detail-info.messages {
+  top: 101px;
+      left: 21%;
+      right: 15px;
+      bottom: 15px;
+      /* overflow: auto; */
+      position: absolute;
+}
+
+body {
+      overflow: hidden;
+}

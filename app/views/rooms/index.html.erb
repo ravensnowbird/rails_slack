@@ -1,29 +1,27 @@
-
-    <!-- Page Title -->
+<!-- Page Title -->
 <div class="section section-breadcrumbs">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
-        <h1>Rails Slack </h1>
+        <h1>Rails Slack
+        </h1>
       </div>
     </div>
   </div>
 </div>
 
-    <div class="section">
-    <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-3">
-        <!-- Product -->
-        <div class="product-detail-info">
-
-        </div>
-        <!-- End Product -->
-      </div>
-      <div class="col-sm-9">
-        <div class="  product-detail-info">
-           
-      </div>
-    </div>
+<div class="product-detail-info rooms">
+  <%= render 'form', room: @room %>
+  <hr>
+  <div class="rooms list-group">
+    <%= render :partial => "room_items", :locals => {:rooms => @rooms} %>
   </div>
-  </div>
+</div>
+<div class="  product-detail-info messages">
+<div class="messages">
+  <% @messages.each do |message| %>
+  <%= render :partial => "messages/message_item", :locals => {:message => message} %>
+  <% end %>
+</div>
+<div class="new_message"></div>
+</div>

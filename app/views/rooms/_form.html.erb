@@ -1,27 +1,21 @@
-<%= form_for(room) do |f| %>
-  <% if room.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(room.errors.count, "error") %> prohibited this room from being saved:</h2>
+<%= form_for(room, :html => {:remote => true}) do |f| %>
+<% if room.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(room.errors.count, "error") %>
+    prohibited this room from being saved:</h2>
 
-      <ul>
-      <% room.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :type %>
-    <%= f.text_field :type %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <ul>
+    <% room.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div class="field input-group">
+  <%= f.text_field :name , :class => "form-control" %>
+  <span class="input-group-btn">
+    <%= f.submit "Create Room", :class=> "btn" %>
+  </span>
+</div>
+<!-- /input-group -->
 <% end %>

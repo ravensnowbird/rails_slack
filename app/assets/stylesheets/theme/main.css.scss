@@ -649,7 +649,7 @@ a:hover {
   margin-left: 30px;
   padding: 0;
 }
-.comment-wrapper p {
+.message-wrapper p {
   margin: 0;
   position: relative;
   border: 1px solid #CCC;
@@ -662,12 +662,9 @@ a:hover {
   border-radius: 3px;
   background-clip: padding-box;
 }
-.comment-author {
-  font-size: 1.3em;
-  font-weight: 600;
-  margin-bottom: 10px;
+.message-author {
 }
-.comment-author img {
+.message-author img {
   max-width: 50px;
   -webkit-border-radius: 25px;
   -webkit-background-clip: padding-box;
@@ -676,28 +673,38 @@ a:hover {
   border-radius: 25px;
   background-clip: padding-box;
   margin-right: 10px;
+  vertical-align: top;
+  position: absolute;
 }
-.comment-date {
-  font-size: 0.9em;
+.message-date {
+  font-size: 0.6em;
   margin-right: 20px;
 }
-.comment-actions {
-  text-align: right;
-  opacity: 0.6;
+.message-text {
+      margin-left: 65px;
+}
+.message-name {
+  font-size: 1em;
+  margin-right: 20px;
+  color: #131313;
+}
+.message-actions {
+  text-align: left;
+  opacity: 0.8;
   -webkit-transition: opacity .25s linear;
   -moz-transition: opacity .25s linear;
   -o-transition: opacity .25s linear;
   -ms-transition: opacity .25s linear;
   transition: opacity .25s linear;
+  margin-top: 10px;
 }
-.comment-actions:hover {
-  text-align: right;
+.message-actions:hover {
   opacity: 1;
 }
-.comment-actions i {
+.message-actions i {
   color: #333;
 }
-.comment-reply-btn {
+.message-reply-btn {
   margin-left: 10px;
 }
 .blog-sidebar h4 {
@@ -1697,6 +1704,8 @@ span.color-red {
   color: #FAFAFA;
   font-size: 1.6em;
   margin-bottom: 0;
+  text-align: center;
+  margin-top: 0;
   text-transform: none;
 }
 /*--------------------------------------------------------------------------

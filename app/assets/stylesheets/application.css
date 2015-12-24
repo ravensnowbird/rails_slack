@@ -13,6 +13,8 @@
  *= require ./theme/bootstrap.min
  *= require ./theme/icomoon-social
  *= require ./theme/leaflet
+ *= require ./theme/misc
  *= require ./theme/main
+ *= require final_layer
  *= require_self
  */
