@@ -1,15 +1,36 @@
 <!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
 <html>
-  <head>
-    <title>RailsSlack</title>
-    <%= csrf_meta_tags %>
-    <%= action_cable_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>mPurpose - Multipurpose Feature Rich Bootstrap Template</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <title>RailsSlack</title>
+  <%= csrf_meta_tags %>
+  <%= action_cable_meta_tag %>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <!--[if lt IE 7]>
+     <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
+
+  <% if current_user %>
+    <%#= render template: "layouts/header" %>
+  <% end %>
+
+  <%= yield %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= render template: "layouts/footer" %>
+</body>
 </html>

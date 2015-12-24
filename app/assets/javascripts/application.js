@@ -13,4 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require ./theme/modernizr-2.6.2-respond-1.1.0.min
+//= require ./theme/bootstrap.min
+//= require ./theme/jquery.bxslider
+//= require ./theme/jquery.fitvids
+//= require ./theme/jquery.sequence-min
+//= require ./theme/main-menu
+//= require ./theme/template

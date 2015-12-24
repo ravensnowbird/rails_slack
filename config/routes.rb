@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root :to => 'home#index'
+  root :to => 'rooms#index'
 
   resources :messages
   resources :rooms
