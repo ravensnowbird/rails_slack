@@ -1,0 +1,14 @@
+$(".room_item").removeClass("active");
+$(".room_<%= @room.id %>").addClass("active");
+$(".messages_list").fadeOut("fast").html("");
+<% @messages.each do |message| %>
+  $(".messages_list").append("<%= escape_javascript(render :partial => "messages/message_item", :locals => {:message => message}) %>");
+<% end %>
+//$(".messages .messages_list").scrollTop($(".messages .messages_list")[0].scrollHeight);
+$("#message_body").val("");
+$("#message_room_id").val('<%= @room.id %>');
+$(".messages_list").fadeIn("fast");
+setTimeout(function () {
+  var objDiv = $(".messages .messages_list")[0];
+  objDiv.scrollTop = objDiv.scrollHeight;
+}, 500);

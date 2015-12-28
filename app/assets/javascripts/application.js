@@ -20,3 +20,4 @@
 //= require ./theme/jquery.sequence-min
 //= require ./theme/main-menu
 //= require ./theme/template
+//= require rooms

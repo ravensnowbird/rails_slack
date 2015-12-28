@@ -1,5 +1,7 @@
 $(document).ready(function(){
-    
+
+  $(".messages_list").scrollTop($(".messages_list")[0].scrollHeight);
+
 	//Homepage Slider
     var options = {
         nextButton: false,
@@ -10,7 +12,7 @@ $(document).ready(function(){
         autoPlayDelay: 3000,
         preloader: true
     };
-    
+
     var mySequence = $("#sequence").sequence(options).data("sequence");
 
     //Main menu Initialization

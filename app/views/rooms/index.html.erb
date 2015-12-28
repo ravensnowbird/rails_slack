@@ -11,17 +11,17 @@
 </div>
 
 <div class="product-detail-info rooms">
-  <%= render 'form', room: @room %>
+  <%= render 'form', room: Room.new %>
   <hr>
   <div class="rooms list-group">
     <%= render :partial => "room_items", :locals => {:rooms => @rooms} %>
   </div>
 </div>
 <div class="  product-detail-info messages">
-<div class="messages">
+<div class="messages_list">
   <% @messages.each do |message| %>
   <%= render :partial => "messages/message_item", :locals => {:message => message} %>
   <% end %>
 </div>
-<div class="new_message"></div>
+<div class="new_message"><%= render 'messages/form', message: Message.new %></div>
 </div>

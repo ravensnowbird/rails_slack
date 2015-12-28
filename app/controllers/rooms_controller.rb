@@ -4,7 +4,7 @@ class RoomsController < ApplicationController
   # GET /rooms
   # GET /rooms.json
   def index
-    @room = Room.new
+    @room = Room.first
     @rooms = Room.all
     @messages = Room.first.messages
   end
@@ -12,6 +12,7 @@ class RoomsController < ApplicationController
   # GET /rooms/1
   # GET /rooms/1.json
   def show
+    @messages = @room.messages
   end
 
   # GET /rooms/new
