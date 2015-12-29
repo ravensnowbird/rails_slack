@@ -27,6 +27,11 @@ class MessagesController < ApplicationController
     @message = current_user.messages.new(message_params)
     respond_to do |format|
       if @message.save
+        ActionCable.server.broadcast "messages", { type: "new_message",
+                                                room_id: @message.room_id,
+                                                   body: @message.body,
+                                             user_email: @message.user.email,
+                                             created_at: @message.created_at}
         format.html { redirect_to @message, notice: 'Message was successfully created.' }
         format.json { render :show, status: :created, location: @message }
         format.js

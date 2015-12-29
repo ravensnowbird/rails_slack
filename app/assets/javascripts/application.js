@@ -13,6 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require cable
+//= require handlebars.runtime
+//= require_tree ./templates
 //= require ./theme/modernizr-2.6.2-respond-1.1.0.min
 //= require ./theme/bootstrap.min
 //= require ./theme/jquery.bxslider
