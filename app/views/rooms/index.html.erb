@@ -1,9 +1,9 @@
 <!-- Page Title -->
-<div class="section section-breadcrumbs">
+<div class="section section-breadcrumbs" style="padding: 10px 0">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
-        <h1>Rails Slack
+        <h1 style="text-align: left">Rails Slack
         </h1>
       </div>
     </div>
@@ -11,8 +11,10 @@
 </div>
 
 <div class="product-detail-info rooms">
+  <h4 style="padding-left: 15px;">Channels</h4>
+  <div class="new_room_form" style="display: none;">
   <%= render 'form', room: Room.new %>
-  <hr>
+  </div>
   <div class="rooms list-group">
     <%= render :partial => "room_items", :locals => {:rooms => @rooms} %>
   </div>

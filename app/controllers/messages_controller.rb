@@ -31,7 +31,8 @@ class MessagesController < ApplicationController
                                                 room_id: @message.room_id,
                                                    body: @message.body,
                                              user_email: @message.user.email,
-                                             created_at: @message.created_at}
+                                             created_at: @message.created_at,
+                                            user_avatar: @message.user.email[0].capitalize}
         format.html { redirect_to @message, notice: 'Message was successfully created.' }
         format.json { render :show, status: :created, location: @message }
         format.js

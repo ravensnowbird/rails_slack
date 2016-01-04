@@ -1,27 +1,38 @@
 .list-group.rooms {
-  overflow-y: scroll;
+  overflow-y: auto;
   position: absolute;
-  top: 95px;
-  left: 30px;
-  right: 30px;
+  top: 40px;
+  left: 0px;
+  right: 20px;
   bottom: 0px;
 }
-
+.list-group.rooms a{
+  padding: 5px 15px;
+}
 .product-detail-info.rooms {
-  top: 101px;
-    left: 15px;
-    right: 80%;
-    bottom: 15px;
+  top: 45px;
+  left: 0px;
+  right: 84%;
+  bottom: 0px;
     /* overflow: auto; */
     position: absolute;
+      background: beige;
+  padding: 0px;
+}
+.product-detail-info.rooms a {
+-webkit-border-radius: 0px;
+-moz-border-radius: 0px;
+-ms-border-radius: 0px;
+-o-border-radius: 0px;
+border-radius: 0px;
 }
 .product-detail-info.messages {
-  top: 101px;
-      left: 21%;
-      right: 15px;
-      bottom: 15px;
-      /* overflow: auto; */
-      position: absolute;
+  top: 45px;
+  left: 16%;
+  right: 0px;
+  bottom: 0px;
+  /* overflow: auto; */
+  position: absolute;
 }
 
 .product-detail-info .messages_list {
@@ -43,3 +54,25 @@ body {
 }
 
 .message-actions:last-child {margin-bottom: 7px;}
+
+.message-text {
+  margin-left: 50px;
+}
+
+.avatar {
+    vertical-align: top;
+    margin-right: 12px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    text-align: center;
+    line-height: 40px;
+    background-color: #E0F2F1;
+    color: #555;
+    position: absolute;
+    -webkit-border-radius: 0px;
+-moz-border-radius: 0px;
+-ms-border-radius: 0px;
+-o-border-radius: 0px;
+border-radius: 0px;
+}

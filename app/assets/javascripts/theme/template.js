@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
   $(".messages_list").scrollTop($(".messages_list")[0].scrollHeight);
+  $('.list-group-item.room_item.active').click(function () {return false;});
 
 	//Homepage Slider
     var options = {

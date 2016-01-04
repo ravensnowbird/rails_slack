@@ -14,7 +14,7 @@
   <%= f.hidden_field :room_id , :value => @room.try(:id) %>
 
   <div class="field input-group">
-    <%= f.text_field :body , :class => "form-control" %>
+    <%= f.text_field :body , :class => "form-control", :autocomplete => "off" %>
     <span class="input-group-btn">
       <%= f.submit "Send", :class=> "btn" %>
     </span>
