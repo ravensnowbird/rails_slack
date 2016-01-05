@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :memberships
   root :to => 'rooms#index'
 
   resources :messages

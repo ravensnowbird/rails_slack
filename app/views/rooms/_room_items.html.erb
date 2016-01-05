@@ -1,3 +1,5 @@
 <% @rooms.each_with_index do |room,index| %>
-  <a href="/rooms/<%= room.id %>" data-remote="true" data-room-id="<%= room.id %>" class="list-group-item room_item room_<%= room.id %> <%= 'active' if index == 0 %>"><%= room.name %> <span class="badge"></span></a>
+  <% if (current_user.room_membership(room).try(:visible) && current_user == room.owner) || current_user.room_membership(room).try(:visible) %>
+    <a href="/rooms/<%= room.id %>" data-remote="true" data-room-id="<%= room.id %>" class="list-group-item room_item room_<%= room.id %> <%= 'active' if index == 0 %>"><%= room.name %> <span class="badge"></span></a>
+  <% end %>
 <% end %>

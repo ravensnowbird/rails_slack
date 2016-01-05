@@ -1,62 +1,90 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
   $(".messages_list").scrollTop($(".messages_list")[0].scrollHeight);
-  $('.list-group-item.room_item.active').click(function () {return false;});
+  $('.list-group-item.room_item').click(function() {
+    if($(this).hasClass('active'))
+      return false;
+  });
 
-	//Homepage Slider
-    var options = {
-        nextButton: false,
-        prevButton: false,
-        pagination: true,
-        animateStartingFrameIn: true,
-        autoPlay: true,
-        autoPlayDelay: 3000,
-        preloader: true
-    };
+  // MODAL FULLSCREEN
+  $(".modal-fullscreen").on('show.bs.modal', function() {
+    setTimeout(function() {
+      $(".modal-backdrop").addClass("modal-backdrop-fullscreen");
+    }, 0);
+  });
+  $(".modal-fullscreen").on('hidden.bs.modal', function() {
+    $(".modal-backdrop").addClass("modal-backdrop-fullscreen");
+  });
 
-    var mySequence = $("#sequence").sequence(options).data("sequence");
 
-    //Main menu Initialization
-    mainMenu.init();
+  /*SEARCHING FOR CHANNELS */
 
-	//Products slider
-	var produxtsSlider = $('.products-slider').bxSlider({
-		slideWidth: $('.products-slider .shop-item').outerWidth()-20, //Gets slide width
-		responsive: true,
-		minSlides: 1,
-		maxSlides: 4,
-		slideMargin: 20,
-		auto: true,
-		autoHover: true,
-		speed: 800,
-		pager: true,
-		controls: false
-	});
+  //setup before functions
+  var typingTimer; //timer identifier
+  var doneTypingInterval = 500; //time in ms, 5 second for example
+  var $input = $('#search_channels');
 
-	//Make Videos Responsive
-	$(".video-wrapper").fitVids();
+  //on keyup, start the countdown
+  $input.on('keyup', function() {
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(doneTyping, doneTypingInterval);
+  });
 
-	//Initialize tooltips
-	$('.show-tooltip').tooltip();
+  //on keydown, clear the countdown
+  $input.on('keydown', function() {
+    clearTimeout(typingTimer);
+  });
 
-	//Contact Us Map
-	if($('#contact-us-map').length > 0){ //Checks if there is a map element
-		var map = L.map('contact-us-map', {
-			center: [51.502, -0.09],
-			scrollWheelZoom: false,
-			zoom: 15
-		});
-		L.tileLayer('http://{s}.tile.cloudmade.com/{key}/22677/256/{z}/{x}/{y}.png', {
-			key: 'BC9A493B41014CAABB98F0471D759707'
-		}).addTo(map);
-		L.marker([51.5, -0.09]).addTo(map).bindPopup("<b>Some Company</b><br/>123 Fake Street<br/>LN1 2ST<br/>London</br>United Kingdom").openPopup();
-	}
+  //user is "finished typing," do something
+  function doneTyping() {
+    var query = $("#search_channels").val();
+    var queryTerms = query.split(' ');
 
-	$( window ).resize(function() {
-		$('.col-footer:eq(0), .col-footer:eq(1)').css('height', '');
-		var footerColHeight = Math.max($('.col-footer:eq(0)').height(), $('.col-footer:eq(1)').height()) + 'px';
-		$('.col-footer:eq(0), .col-footer:eq(1)').css('height', footerColHeight);
-	});
-	$( window ).resize();
+    var results = new Array();
+    for(var i = 0; i < queryTerms.length; i++) {
+        for(var j = 0; j < links.length; j++) {
+            if (links[j].text.toLowerCase().indexOf(queryTerms[i].toLowerCase()) > -1) {
+                results.push(links[j].element);
+                }
+        }
+    }
+
+    $(".channel_row").each(function(index, element) {
+        this.style.display = 'none';
+    });
+    for(var i = 0; i < results.length; i++) {
+        results[i].style.display = 'block';
+    }
+  }
+
+  setChannelsForSearch();
+
+  /*SEARCHING FOR CHANNELS */
+
+
+
+  $(window).resize(function() {
+    $('.col-footer:eq(0), .col-footer:eq(1)').css('height', '');
+    var footerColHeight = Math.max($('.col-footer:eq(0)').height(), $('.col-footer:eq(1)').height()) + 'px';
+    $('.col-footer:eq(0), .col-footer:eq(1)').css('height', footerColHeight);
+  });
+  $(window).resize();
+
+
+
+  /* CHANNELS SHOW HIDE */
+  $('.visible_check_box').click(function() {
+    $(this).closest('form').submit();
+  });
 
 });
+
+var links = new Array();
+function setChannelsForSearch() {
+  $(".channel_row").each(function(index, element) {
+      links.push({
+          text: $(this).text(),
+          element: element
+      });
+  });
+}

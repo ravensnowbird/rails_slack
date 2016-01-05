@@ -31,7 +31,9 @@ class RoomsController < ApplicationController
 
     respond_to do |format|
       if @room.save
+        @room.memberships.create(:user_id => current_user.id, :status => "owner")
         @rooms = Room.all
+
         format.html { redirect_to @room, notice: 'Room was successfully created.' }
         format.json { render :show, status: :created, location: @room }
         format.js

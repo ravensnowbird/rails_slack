@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :messages
+
+  def room_membership(room)
+    Membership.where(:user_id => self.id , :room_id => room.id).first_or_create
+  end
 end

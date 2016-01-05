@@ -1,0 +1,14 @@
+<%= form_for(membership, :html => {:remote => true}) do |f| %>
+<%= f.hidden_field :room_id , :value => room.id %>
+<div class="field">
+  <div class="switch">
+    <div class="onoffswitch">
+      <%= f.check_box :visible , :class => " onoffswitch-checkbox visible_check_box" , id: "membership#{membership.id}" %>
+      <label class="onoffswitch-label" for="<%= "membership#{membership.id}" %>">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+      </label>
+    </div>
+  </div>
+</div>
+<% end %>

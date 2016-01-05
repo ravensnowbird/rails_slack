@@ -1,0 +1,13 @@
+<% @rooms.all.each do |room| %>
+<div class="channel_row">
+  <div class="details inline-block">
+  <h4><%= room.name %></h4>
+  <span class="text-muted">created by </span>
+  <span class="name"><%= room.owner.email %></span>
+  <span class="date"><%= room.created_at %></span>
+  </div>
+  <div class="check_box_form inline-block pull-right margin-top-15">
+    <%= render :partial => "memberships/visible_form", locals: {:membership => current_user.room_membership(room), :room => room} %>
+  </div>
+</div>
+<% end %>

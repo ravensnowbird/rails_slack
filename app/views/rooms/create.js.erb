@@ -1,1 +1,4 @@
-$(".rooms.list-group").html("<%= escape_javascript(render :partial => "room_items", :locals => {:rooms => @rooms}) %>")
+$(".rooms.list-group").html("<%= escape_javascript(render :partial => "room_items", :locals => {:rooms => @rooms}) %>");
+$(".channel_list").html("<%= escape_javascript(render :partial => "room_items_for_search", :locals => {:rooms => @rooms}) %>")
+setChannelsForSearch();
+$(".product-detail-info.rooms h4 .rooms_count").text("(<%= @rooms.count %>)")

@@ -5,9 +5,9 @@
   left: 0px;
   right: 20px;
   bottom: 0px;
-}
-.list-group.rooms a{
+  a {
   padding: 5px 15px;
+ }
 }
 .product-detail-info.rooms {
   top: 45px;
@@ -18,13 +18,17 @@
     position: absolute;
       background: beige;
   padding: 0px;
-}
-.product-detail-info.rooms a {
+   a {
 -webkit-border-radius: 0px;
 -moz-border-radius: 0px;
 -ms-border-radius: 0px;
 -o-border-radius: 0px;
 border-radius: 0px;
+}
+h4 {
+  padding-left: 15px;
+    cursor: pointer;
+}
 }
 .product-detail-info.messages {
   top: 45px;
@@ -75,4 +79,25 @@ body {
 -ms-border-radius: 0px;
 -o-border-radius: 0px;
 border-radius: 0px;
+}
+
+.channel_row {
+  border: 1px solid #FFF;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 15px 10px;
+  h4 {
+        font-weight: 600;
+        padding-left: 0px;
+            margin-top: 0px;
+  }
+
+}
+.channel_row:hover {
+  background: aliceblue;
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+  border-top: 0px;
+}
+.channel_row:first-child:hover {
+  border-top: 1px solid #e5e5e5;
 }

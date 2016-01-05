@@ -11,19 +11,45 @@
 </div>
 
 <div class="product-detail-info rooms">
-  <h4 style="padding-left: 15px;">Channels</h4>
-  <div class="new_room_form" style="display: none;">
-  <%= render 'form', room: Room.new %>
-  </div>
+  <h4 data-target="#modal-fullscreen" data-toggle="modal">Channels
+    <span class="text-muted rooms_count">(<%= Room.count %>)</span>
+  </h4>
   <div class="rooms list-group">
     <%= render :partial => "room_items", :locals => {:rooms => @rooms} %>
   </div>
 </div>
-<div class="  product-detail-info messages">
-<div class="messages_list">
-  <% @messages.each do |message| %>
-  <%= render :partial => "messages/message_item", :locals => {:message => message} %>
-  <% end %>
+<!-- Modal fullscreen -->
+<div aria-hidden="true"  data-backdrop="static"  aria-labelledby="myModalLabel" class="modal modal-fullscreen fade" id="modal-fullscreen" role="dialog" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="    padding: 20px;    border: 0px;">
+        <button class="close" data-dismiss="modal" type="button">
+          <span aria-hidden="true" style="font-size: 41px;">&times;</span>
+          <span class="sr-only">Close</span>
+        </button>
+        <h1 class="modal-title text-center" id="myModalLabel">Channels</h1>
+        <br><br>
+        <div class="left-inner-addon" style="display: inline-block; width: 45%;">
+          <i class="glyphicon glyphicon-search"></i>
+          <input type="text" class="form-control" placeholder="Search..."  id="search_channels">
+        </div>
+        <div  style="display: inline-block; width: 54%;float: right; ">
+        <%= render 'form', room: Room.new %>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="channel_list">
+          <%= render :partial => "room_items_for_search", :locals => {:rooms => @rooms} %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="new_message"><%= render 'messages/form', message: Message.new %></div>
+<div class="  product-detail-info messages">
+  <div class="messages_list">
+    <% @messages.each do |message| %>
+    <%= render :partial => "messages/message_item", :locals => {:message => message} %>
+    <% end %>
+  </div>
+  <div class="new_message"><%= render 'messages/form', message: Message.new %></div>
 </div>
